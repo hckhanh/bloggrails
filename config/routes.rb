@@ -6,8 +6,7 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  resources :users, only: [:edit, :update, :new, :create, :destroy]
-
+  resources :users, only: [:index, :show, :edit, :update, :new, :create, :destroy]
 
   controller :sessions do
     get 'login' => :new
@@ -16,4 +15,8 @@ Rails.application.routes.draw do
 
     delete 'logout' => :destroy
   end
+
+  get 'reset' => 'users#reset'
+
+  put 'reset' => 'users#reset_update'
 end

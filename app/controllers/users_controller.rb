@@ -1,13 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
-
-  # GET /users
-  # GET /users.json
-  def index
-    @users = User.all
-
-    # render json: @users.map(&.as_json(except: [:password_digest]) )
-  end
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :reset]
 
   # GET /users/1
   # GET /users/1.json
@@ -21,7 +13,7 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1/edit
-  def edit
+  def edit;
   end
 
   # POST /users
@@ -47,8 +39,39 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+      format.html { redirect_to users_url, notice: 'User was deleted.' }
       format.json { head :no_content }
+    end
+  end
+
+  # GET /reset
+  def reset
+    if @user
+      redirect_to @user
+    else
+      render :reset
+    end
+    # respond_to do |format|
+    #   if yield
+    #     format.html { redirect_to @user, notice: 'User was updated.' }
+    #     format.json { render :show, status: status, location: @user }
+    #   else
+    #     format.html { render :edit }
+    #     format.json { render json: @user.errors, status: :unprocessable_entity }
+    #   end
+    # end
+  end
+
+  # GET /reset_update
+  def reset_update
+    respond_to do |format|
+      if yield
+        format.html { redirect_to @user, notice: 'User was updated.' }
+        format.json { render :show, status: status, location: @user }
+      else
+        format.html { render :edit }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -64,10 +87,11 @@ class UsersController < ApplicationController
     params.require(:user).permit(:username, :email, :password, :password_confirmation)
   end
 
+  # Structure for handling modification of User
   def modify_user(status)
     respond_to do |format|
       if yield
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user, notice: 'User was updated.' }
         format.json { render :show, status: status, location: @user }
       else
         format.html { render :edit }
