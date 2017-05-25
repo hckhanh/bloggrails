@@ -6,5 +6,7 @@ class CreateArticles < ActiveRecord::Migration[5.1]
 
       t.timestamps
     end
+    add_index :articles, :title
+    add_index :articles, :text
   end
 end
