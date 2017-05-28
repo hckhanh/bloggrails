@@ -2,7 +2,6 @@ class SessionsController < ApplicationController
   include UsersHelper
 
   def new
-
   end
 
   def create

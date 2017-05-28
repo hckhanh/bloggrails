@@ -17,4 +17,8 @@ Rails.application.routes.draw do
   get 'reset' => 'users#reset'
 
   put 'reset' => 'users#reset_update'
+
+  get 'sign_up' => 'users#new'
+
+  post 'sign_up' => 'user#create'
 end
