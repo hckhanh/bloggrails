@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   root 'welcome#index'
 
   resources :articles
@@ -14,11 +13,13 @@ Rails.application.routes.draw do
     delete 'logout' => :destroy
   end
 
-  get 'reset' => 'users#reset'
+  controller :users do
+    get 'reset' => :reset
 
-  put 'reset' => 'users#reset_update'
+    put 'reset' => :reset_update
 
-  get 'sign_up' => 'users#new'
+    get 'sign_up' => :new
 
-  post 'sign_up' => 'user#create'
+    post 'sign_up' => :create
+  end
 end
