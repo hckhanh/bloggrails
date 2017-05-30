@@ -1,4 +1,6 @@
 class PasswordResetController < ApplicationController
+  skip_before_action :authenticate
+
   def new
   end
 
@@ -8,7 +10,7 @@ class PasswordResetController < ApplicationController
     if params.key?(:email) && User.find_by_email(data[:email])
       redirect_to new_user_path
     else
-      flash[:error] = 'We cannot find this email.'
+      flash.now[:error] = 'We cannot find this email.'
       render :new
     end
   end

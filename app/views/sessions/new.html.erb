@@ -48,9 +48,9 @@
         <div class="row">
           <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
             <div class="card card-signup">
-              <%= form_tag login_url, remote: true, class: 'form' do %>
+              <%= form_tag login_url, class: 'form' do %>
                 <div class="header header-primary text-center">
-                  <h4>Login</h4>
+                  <h4>Sign in to Blog Rails</h4>
                   <!--<div class="social-line">-->
                   <!--<a href="#pablo" class="btn btn-simple btn-just-icon">-->
                   <!--<i class="fa fa-facebook-square"></i>-->
@@ -64,6 +64,19 @@
                   <!--</div>-->
                 </div>
                 <!--<p class="text-divider">Or Be Classical</p>-->
+                <% if flash[:error] %>
+                  <div class="alert alert-danger">
+                    <div class="container-fluid">
+                      <div class="alert-icon">
+                        <i class="material-icons">error_outline</i>
+                      </div>
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true"><i class="material-icons">clear</i></span>
+                      </button>
+                      <%= flash[:error] %>
+                    </div>
+                  </div>
+                <% end %>
                 <div class="content">
                   <div class="input-group">
 										<span class="input-group-addon">
@@ -79,8 +92,10 @@
                   </div>
                   <%= hidden_field_tag :return_to, request.GET[:return_to] %>
                 </div>
-                <div class="footer text-center">
+                <div class=" text-center">
                   <%= submit_tag 'Login', class: 'btn btn-simple btn-primary btn-lg' %>
+                  <br>
+                  <%= link_to 'Forget password?', password_reset_path, class: 'btn btn-simple btn-link btn-sm' %>
                 </div>
               <% end %>
             </div>
@@ -114,8 +129,8 @@
             </ul>
           </nav>
           <div class="copyright pull-right">
-            &copy; 2016, made with <i class="fa fa-heart heart"></i> by
-            <a href="http://www.creative-tim.com" target="_blank">Creative Tim</a>
+            &copy; 2017, made with <i class="fa fa-heart heart"></i> by
+            <a href="http://www.creative-tim.com" target="_blank">Khanh Hoang</a>
           </div>
         </div>
       </footer>

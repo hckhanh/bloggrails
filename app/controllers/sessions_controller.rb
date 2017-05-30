@@ -18,6 +18,7 @@ class SessionsController < ApplicationController
 
       redirect_to redirect_path
     else
+      flash[:error] = 'Invalid account credentials!'
       render :new
     end
   end
