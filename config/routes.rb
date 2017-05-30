@@ -22,4 +22,14 @@ Rails.application.routes.draw do
 
     post 'sign_up' => :create
   end
+
+  controller :password_reset do
+    get 'password_reset' => :new
+
+    post 'password_reset' => :create
+
+    get 'password_reset/:token' => :reset_edit, as: 'password_reset_edit'
+
+    put 'password_reset/:token' => :reset_update
+  end
 end

@@ -1,12 +1,13 @@
 class SessionsController < ApplicationController
   include UsersHelper
+  skip_before_action :authenticate, except: :destroy
 
   def new
   end
 
   def create
-    login    = session_params[:login]
-    password = session_params[:password]
+    login = params[:login]
+    password = params[:password]
 
     user = if is_email login
              User.find_by_email login
@@ -15,19 +16,18 @@ class SessionsController < ApplicationController
            end
 
     if user.try :authenticate, password
-      redirect_to new_user_path
+      session = user.sessions.create session_token: SecureRandom.urlsafe_base64(64)
+      cookies.encrypted[:session_token] = session.session_token
+
+      redirect_to params[:return_to] || root_path
     else
-      render 'new'
+      render :new
     end
   end
 
   def destroy
+    @session.destroy
+    cookies.delete :session_token
+    redirect_to root_path
   end
-
-  private
-
-  def session_params
-    params.permit :login, :password
-  end
-
 end
