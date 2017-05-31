@@ -3,15 +3,15 @@ class SessionsController < ApplicationController
   skip_before_action :authenticate, except: :destroy
 
   def new
-    puts Rails.configuration.expired_time
     @session = Session.find_by_session_token cookies.encrypted[:session_token]
     redirect_to redirect_path if @session
   end
 
   def create
-    login = params[:login]
+    return render :new unless verify_recaptcha(params['g-recaptcha-response'])
+
+    user = user_from_email_or_username params[:login]
     password = params[:password]
-    user = user_from_email_or_username login
 
     if user.try :authenticate, password
       session = user.sessions.create session_token: SecureRandom.urlsafe_base64(64)
@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
 
       redirect_to redirect_path
     else
-      flash.now[:error] = 'Invalid account credentials!'
+      flash[:error] = 'Invalid account credentials!'
       render :new
     end
   end

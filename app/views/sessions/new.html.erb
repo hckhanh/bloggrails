@@ -48,7 +48,7 @@
         <div class="row">
           <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
             <div class="card card-signup">
-              <%= form_tag login_url, class: 'form' do %>
+              <%= form_tag login_url, class: 'form', id: 'login-form' do %>
                 <div class="header header-primary text-center">
                   <h4>Sign in to Blog Rails</h4>
                   <!--<div class="social-line">-->
@@ -93,7 +93,12 @@
                   <%= hidden_field_tag :return_to, request.GET[:return_to] %>
                 </div>
                 <div class=" text-center">
-                  <%= submit_tag 'Login', class: 'btn btn-simple btn-primary btn-lg' %>
+                  <%= button_tag 'Login', class: 'btn btn-simple btn-primary btn-lg g-recaptcha',
+                                 data: {
+                                   sitekey: Rails.application.secrets.recaptcha_site_key,
+                                   callback: 'submitLoginForm'
+                                 }
+                  %>
                   <br>
                   <%= link_to 'Forget password?', password_reset_path, class: 'btn btn-simple btn-link btn-sm' %>
                 </div>
