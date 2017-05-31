@@ -4,10 +4,13 @@
       <w>datepicker</w>
       <w>evented</w>
       <w>github</w>
+      <w>navbar</w>
       <w>nouislider</w>
       <w>recaptcha</w>
       <w>runtimes</w>
+      <w>signup</w>
       <w>siteverify</w>
+      <w>unarchive</w>
     </words>
   </dictionary>
 </component>

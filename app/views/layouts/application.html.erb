@@ -12,11 +12,14 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"/>
 
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
-<body>
-<%= yield %>
-<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+<body class="<%= yield :body_class %>">
+<%= render 'layouts/header' %>
+<div class="wrapper">
+  <%= yield %>
+</div>
+<%= yield :footer %>
 </body>
 </html>
