@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate
+  helper_method :user_logged_in
 
   protected
 
@@ -15,5 +16,9 @@ class ApplicationController < ActionController::Base
                               secret: Rails.application.secrets.recaptcha_secret_key,
                               response: recaptcha_response
     ActiveSupport::JSON.decode(res.body)['success']
+  end
+
+  def user_logged_in
+    !cookies.encrypted[:session_token].nil?
   end
 end
