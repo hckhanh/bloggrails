@@ -20,7 +20,7 @@
     }
   }
   .article-content {
-
+    color: #999;
   }
   .article-author {
     a {
@@ -38,4 +38,10 @@
 
 .error-list {
   padding-left: 30px;
+}
+
+.article-full-content p {
+  font-size: 1.35em !important;
+  line-height: 1.5em !important;
+  color: #555;
 }

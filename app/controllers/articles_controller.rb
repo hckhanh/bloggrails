@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
-  skip_before_action :authenticate, only: :index
-  before_action :authorized_user, only: [:index, :new]
+  skip_before_action :authenticate, only: [:index, :show]
+  before_action :authorized_user, only: [:index, :new, :show]
 
   def index
     @articles = Article.all

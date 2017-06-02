@@ -30,7 +30,7 @@ class SessionsController < ApplicationController
   def destroy
     @session.destroy
     cookies.delete :session_token
-    redirect_to root_path
+    redirect_back fallback_location: root_path
   end
 
   private
