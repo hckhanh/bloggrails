@@ -1,14 +1,7 @@
-<%= content_for :article_header do %>
-  <div class="header header-filter big-header" style="background-image: url('http://demos.creative-tim.com/material-kit-pro/assets/img/bg10.jpg');">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-          <h2 class="title title-header text-center"><%= @article.title %></h2>
-        </div>
-      </div>
-    </div>
-  </div>
-<% end %>
+<%= render 'articles/header',
+           header_class: 'big-header',
+           header_image: 'http://demos.creative-tim.com/material-kit-pro/assets/img/bg10.jpg',
+           header_title: @article.title %>
 
 <%= render 'articles/layout' do %>
   <div class="article-full-content">

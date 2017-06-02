@@ -1,14 +1,7 @@
-<%= content_for :article_header do %>
-  <div class="header header-filter" style="background-image: url('http://demos.creative-tim.com/material-kit-pro/assets/img/bg10.jpg');">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-          <h2 class="title title-header text-center">The more we share, the more we have.</h2>
-        </div>
-      </div>
-    </div>
-  </div>
-<% end %>
+<%= render 'articles/header',
+           header_class: '',
+           header_image: 'http://demos.creative-tim.com/material-kit-pro/assets/img/bg10.jpg',
+           header_title: 'The more we share, the more we have.' %>
 
 <%= render 'articles/layout' do %>
   <h2 class="title">Write an article</h2>
