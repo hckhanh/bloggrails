@@ -1,12 +1,13 @@
 class ArticlesController < ApplicationController
   skip_before_action :authenticate, only: :index
+  before_action :authorized_user, only: [:index, :new]
 
   def index
     @articles = Article.all
   end
 
   def new
-    @article = Article.new
+    @article = @current_user.articles.new
   end
 
   def create
@@ -14,7 +15,6 @@ class ArticlesController < ApplicationController
 
     if @article.save
       redirect_to @article
-      # redirect_to action: 'show', id: @article
     else
       render 'new'
     end
@@ -49,6 +49,6 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :text)
+    params.require(:article).permit(:user_id, :title, :text)
   end
 end

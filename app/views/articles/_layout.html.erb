@@ -1,0 +1,17 @@
+<% content_for :body_class, 'tutorial-page' %>
+<% content_for :nav_class, 'navbar navbar-transparent navbar-fixed-top navbar-color-on-scroll' %>
+
+<%= yield :article_header %>
+
+<div class="main main-raised">
+  <div class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 col-lg-offset-1">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= render 'layouts/footer' %>
+</div>

@@ -53,5 +53,5 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   # Expired time for authentication token
-  config.expired_time = 2.minutes
+  config.expired_time = 1.days
 end
