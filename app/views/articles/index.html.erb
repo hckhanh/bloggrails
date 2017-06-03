@@ -3,7 +3,7 @@
            header_image: 'http://demos.creative-tim.com/material-kit-pro/assets/img/bg10.jpg',
            header_title: 'Power is gained from sharing knowledge, not hoarding it.' %>
 
-<%= render 'articles/layout' do %>
+<%= render 'articles/layout', content_class: 'col-md-10 col-lg-offset-1' do %>
   <% @articles.each do |article| %>
     <div class="article">
       <h3 class="article-title">

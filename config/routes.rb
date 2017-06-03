@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   root 'articles#index'
 
-  resources :articles, except: :index
+  resources :articles, except: :index do
+    resources :comments, only: :create
+  end
 
-  # resources :users, only: [:index, :show, :edit, :update, :new, :create, :destroy]
+  # resources :users, only: [:show, :edit, :update, :new, :create, :destroy]
 
   controller :welcome do
     get 'instruction' => :instruction

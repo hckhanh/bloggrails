@@ -3,8 +3,45 @@
            header_image: 'http://demos.creative-tim.com/material-kit-pro/assets/img/bg10.jpg',
            header_title: @article.title %>
 
-<%= render 'articles/layout' do %>
+<%= render 'articles/layout', content_class: 'col-md-8 col-lg-offset-2' do %>
   <div class="article-full-content">
     <%= simple_format @article.text %>
   </div>
+  <hr>
+  <div class="media-area">
+    <% @article.comments.each do |comment| %>
+      <div class="media">
+        <a class="pull-left" href="#">
+          <div class="avatar">
+            <img class="media-object img-circle img-raised img-responsive" src="http://demos.creative-tim.com/material-kit-pro/assets/img/faces/card-profile4-square.jpg" alt="...">
+          </div>
+        </a>
+        <div class="media-body">
+          <h4 class="media-heading"><%= comment.user.username %>
+            <small>· <%= time_ago_in_words comment.created_at %></small>
+          </h4>
+          <h6 class="text-muted"></h6>
+          <p><%= simple_format comment.text %></p>
+          <!--<div class="media-footer">-->
+          <!--<a href="#pablo" class="btn btn-primary btn-simple pull-right" rel="tooltip" title="" data-original-title="Reply to Comment">-->
+          <!--<i class="material-icons">reply</i> Reply-->
+          <!--</a>-->
+          <!--<a href="#pablo" class="btn btn-danger btn-simple pull-right">-->
+          <!--<i class="material-icons">favorite</i> 243-->
+          <!--</a>-->
+          <!--</div>-->
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <% if @current_user %>
+    <hr>
+    <%= form_with model: [@article, @article.comments.build], id: 'comment-form' do |f| %>
+      <div class="form-group label-floating">
+        <%= f.label :text, class: 'control-label' %>
+        <%= f.text_area :text, class: 'form-control', rows: 8 %>
+      </div>
+      <%= f.button 'Post comment', class: 'btn btn-primary' %>
+    <% end %>
+  <% end %>
 <% end %>

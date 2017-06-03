@@ -19,7 +19,7 @@
         </li>
         <% unless @current_user %>
           <li>
-            <%= link_to login_path do %>
+            <%= link_to login_path return_to: request.url do %>
               <i class="material-icons">fingerprint</i> Sign in
             <% end %>
           </li>

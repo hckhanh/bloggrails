@@ -3,25 +3,11 @@
            header_image: 'http://demos.creative-tim.com/material-kit-pro/assets/img/bg10.jpg',
            header_title: 'The more we share, the more we have.' %>
 
-<%= render 'articles/layout' do %>
+<%= render 'articles/layout', content_class: 'col-md-8 col-lg-offset-2' do %>
   <h2 class="title">Write an article</h2>
   <p class="description">Any topic you share, we always appreciate it.</p>
   <%= form_with model: @article, class: 'article-form' do |f| %>
-    <% if @article.errors.any? %>
-      <div class="alert alert-danger">
-        <div class="container-fluid">
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true"><i class="material-icons">clear</i></span>
-          </button>
-          <b><%= pluralize @article.errors.count, 'error' %> need to be fixed:</b>
-          <ul class="error-list">
-            <% @article.errors.full_messages.each do |msg| %>
-              <li><%= msg %></li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    <% end %>
+    <%= render 'layouts/error', data: @article %>
     <%= f.hidden_field :user_id %>
     <div class="form-group label-floating">
       <%= f.label :title, class: 'control-label' %>
@@ -31,6 +17,6 @@
       <%= f.label :text, class: 'control-label' %>
       <%= f.text_area :text, class: 'form-control', rows: 15 %>
     </div>
-    <%= f.submit 'Create article', class: 'btn btn-primary' %>
+    <%= f.button 'Create article', class: 'btn btn-primary' %>
   <% end %>
 <% end %>

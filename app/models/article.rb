@@ -3,4 +3,5 @@ class Article < ApplicationRecord
   validates :text, presence: true, length: { minimum: 10 }
 
   belongs_to :user
+  has_many :comments, dependent: :destroy
 end
