@@ -17,15 +17,6 @@ SET row_security = off;
 SET search_path = public, pg_catalog;
 
 --
--- Data for Name: ar_internal_metadata; Type: TABLE DATA; Schema: public; Owner: hoang
---
-
-COPY ar_internal_metadata (key, value, created_at, updated_at) FROM stdin;
-environment	development	2017-06-03 12:29:32.997593	2017-06-03 12:29:32.997593
-\.
-
-
---
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: hoang
 --
 
