@@ -7,28 +7,31 @@
   background-color: rgba(0, 0, 0, .5) !important;
 }
 
-.article {
-  margin: 40px 0;
-  display: block;
-  .article-title {
-    font-family: "Roboto Slab", "Times New Roman", serif;
-    font-weight: bold;
-    margin-top: 5px;
-    a {
-      color: #3C4858;
-      text-decoration: none;
-      cursor: pointer;
-    }
-  }
-  .article-content {
-    color: #999;
-  }
-  .article-author {
-    a {
-      color: #3C4858;
+.articles-list {
+  padding-top: 40px;
+  .article {
+    margin: 40px 0;
+    display: block;
+    .article-title {
+      font-family: "Roboto Slab", "Times New Roman", serif;
       font-weight: bold;
-      cursor: pointer;
-      text-decoration: none;
+      margin-top: 5px;
+      a {
+        color: #3C4858;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    }
+    .article-content {
+      color: #999;
+    }
+    .article-author {
+      a {
+        color: #3C4858;
+        font-weight: bold;
+        cursor: pointer;
+        text-decoration: none;
+      }
     }
   }
 }

@@ -3,7 +3,11 @@ class ArticlesController < ApplicationController
   before_action :authorized_user, only: [:index, :new, :show]
 
   def index
-    @articles = Article.all
+    @articles = if params[:order] == 'desc'
+                  Article.order 'created_at desc'
+                else
+                  Article.all
+                end
   end
 
   def new

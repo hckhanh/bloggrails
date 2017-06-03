@@ -8,7 +8,6 @@
     <%= simple_format @article.text %>
   </div>
   <% if @article.comments.any? %>
-    <!--<hr>-->
     <h3 class="title text-center"><%= pluralize @article.comments.count, 'comment' %></h3>
     <div class="media-area">
       <% @article.comments.each do |comment| %>
