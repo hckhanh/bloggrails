@@ -8,6 +8,16 @@ class ArticlesController < ApplicationController
                 else
                   Article.all
                 end
+
+    query = params[:search]
+    if query
+      @articles = @articles.select { |article| (article.title.include? query) || (article.text.include? query) }
+    end
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @articles }
+    end
   end
 
   def new

@@ -2,10 +2,10 @@ Rails.application.routes.draw do
   root 'articles#index'
 
   resources :articles, except: :index do
-    resources :comments, only: :create
+    resources :comments, except: :show
   end
 
-  # resources :users, only: [:show, :edit, :update, :new, :create, :destroy]
+  # resources :users, except: :index
 
   controller :welcome do
     get 'instruction' => :instruction
@@ -17,6 +17,12 @@ Rails.application.routes.draw do
     post 'login' => :create
 
     delete 'logout' => :destroy
+  end
+
+  scope :api do
+    defaults format: :json do
+      resources :articles, only: :index
+    end
   end
 
   #   controller :users do
