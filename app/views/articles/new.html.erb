@@ -17,6 +17,11 @@
       <%= f.label :text, class: 'control-label' %>
       <%= f.text_area :text, class: 'form-control', rows: 15 %>
     </div>
-    <%= f.button 'Create article', class: 'btn btn-primary' %>
+    <div>
+      <%= f.label :image %>
+      <%= f.hidden_field :image_cache %>
+      <%= f.file_field :image, accept: 'image/png,image/gif,image/jpeg' %>
+    </div>
+    <%= f.button 'Create article', class: 'btn btn-primary pull-right' %>
   <% end %>
 <% end %>

@@ -6,15 +6,27 @@
 <%= render 'articles/layout', content_class: 'col-md-10 col-lg-offset-1' do %>
   <% @articles.each do |article| %>
     <div class="article">
-      <h3 class="article-title">
-        <%= link_to article.title, article %>
-      </h3>
-      <p class="article-content">
-        <%= truncate(article.text, length: 345) { link_to 'Read More', article } %>
-      </p>
-      <p class="article-author">
-        by <a href="#"><%= article.user.username %></a>, <%= time_ago_in_words article.created_at %> ago
-      </p>
+      <div class="row">
+        <div class="col-md-4">
+          <%= link_to article do %>
+            <div class="card-image">
+              <%= cl_image_tag article.image_url(:thumbnail), class: 'img img-raised' %>
+              <div class="colored-shadow" style="background-image: url('http://demos.creative-tim.com/material-kit-pro/assets/img/examples/card-blog4.jpg'); opacity: 1;"></div>
+            </div>
+          <% end %>
+        </div>
+        <div class="col-md-8">
+          <h3 class="article-title">
+            <%= link_to article.title, article %>
+          </h3>
+          <p class="article-content">
+            <%= truncate(article.text, length: 345) { link_to 'Read More', article } %>
+          </p>
+          <p class="article-author">
+            by <a href="#"><%= article.user.username %></a>, <%= time_ago_in_words article.created_at %> ago
+          </p>
+        </div>
+      </div>
     </div>
   <% end %>
 <% end %>
