@@ -32,6 +32,8 @@ gem 'bcrypt', '~> 3.1.11'
 gem 'carrierwave'
 # Image hosting service
 gem 'cloudinary'
+# fast, pure-Ruby Markdown-superset converter
+gem 'kramdown'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

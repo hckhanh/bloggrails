@@ -9,10 +9,12 @@
       <w>dropdown</w>
       <w>evented</w>
       <w>github</w>
+      <w>kramdown</w>
       <w>navbar</w>
       <w>nimoy</w>
       <w>nouislider</w>
       <w>recaptcha</w>
+      <w>redcarpet</w>
       <w>runtimes</w>
       <w>signup</w>
       <w>siteverify</w>

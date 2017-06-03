@@ -1,2 +1,8 @@
-This is instruction
-<%= time_ago_in_words Time.now %> ago
+<%= render 'articles/header',
+           header_class: '',
+           header_image: 'http://demos.creative-tim.com/material-kit-pro/assets/img/bg10.jpg',
+           header_title: 'Instruction' %>
+
+<%= render 'articles/layout', content_class: 'col-md-8 col-lg-offset-2' do %>
+  <%= @content %>
+<% end %>

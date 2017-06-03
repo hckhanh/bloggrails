@@ -1,24 +1,58 @@
-# README
+# bloggrails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[![Code Climate](https://codeclimate.com/github/hckhanh/bloggrails/badges/gpa.svg)](https://codeclimate.com/github/hckhanh/bloggrails)
 
-Things you may want to cover:
+A demo application for Ruby on Rails
 
-* Ruby version
+## Requisites
 
-* System dependencies
+* Ruby `2.3.3` or above
+* Rails `5.1.1`
 
-* Configuration
+## Configuration
 
-* Database creation
+To deploy to the VPS server or Heroku, you have to configure these environment vairables:
 
-* Database initialization
+| Variable              | Description                                                                     |
+|-----------------------|---------------------------------------------------------------------------------|
+| DATABASE_URL          | Full database url: `postgres://USER_NAME:PASSWORD@HOST_NAME:PORT/DATABASE_NAME` |
+| RECAPTCHA_SITE_KEY    | Site key from https://www.google.com/recaptcha/admin                            |
+| RECAPTCHA_SECRET_KEY  | Secret key from https://www.google.com/recaptcha/admin                          |
+| CLOUDINARY_API_KEY    | API key from [Cloudinary](http://cloudinary.com/) service                       |
+| CLOUDINARY_API_SECRET | API secret from [Cloudinary](http://cloudinary.com/) service                    |
+| CLOUDINARY_CLOUD_NAME | Cloud name from [Cloudinary](http://cloudinary.com/) service                    |                  |
+{: .table}
 
-* How to run the test suite
+## Database creation
 
-* Services (job queues, cache servers, search engines, etc.)
+Login to server and run:
 
-* Deployment instructions
+~~~
+$ rake db:migrate
+~~~
 
-* ...
+## Database initialization
+
+In the source folder, I already put a file `db/data.pgsql`.
+This file contains the sample data for the application.
+
+To seed the data for database, run:
+
+~~~
+$ psql DATABASE_URL < db/data.pgsql
+~~~
+
+> **Note:** `DATABASE_URL` is full url to the database:
+>
+> ~~~
+> postgres://USER_NAME:PASSWORD@HOST_NAME:PORT/DATABASE_NAME
+> ~~~
+
+## Services
+
+| Service    | Description                                                                                                                                                      |
+|------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| reCAPTCHA  | To prevent malicious actions from **bad bots**                                                                                                                   |
+| Cloudinary | When user create an article, an image need to be attached to the article, this service will store and manage all images and become CDN resource for the website. |
+| Heroku     | Server for the application                                                                                                                                       |                                                                                                                                    |
+{: .table}
