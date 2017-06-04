@@ -8,7 +8,18 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to 'Bloggrails', root_path, class: 'navbar-brand' %>
+      <%= link_to root_path do %>
+        <div class="logo-container">
+          <div class="logo">
+            <%= image_tag 'ruby.png',
+                          alt: 'Bloggrails Logo',
+                          rel: 'tooltip',
+                          title: '<b>Bloggrails</b> was coded with care by <i class="fa fa-heart heart"></i>',
+                          data: { placement: 'bottom', html: true } %>
+          </div>
+          <div class="brand">Bloggrails</div>
+        </div>
+      <% end %>
     </div>
     <div class="collapse navbar-collapse" id="navigation-example">
       <ul class="nav navbar-nav navbar-right">
