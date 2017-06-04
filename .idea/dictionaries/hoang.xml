@@ -6,6 +6,7 @@
       <w>bloggrails</w>
       <w>cloudinary</w>
       <w>datepicker</w>
+      <w>deflater</w>
       <w>dropdown</w>
       <w>evented</w>
       <w>github</w>
@@ -13,10 +14,12 @@
       <w>kramdown</w>
       <w>navbar</w>
       <w>nimoy</w>
+      <w>nosniff</w>
       <w>nouislider</w>
       <w>recaptcha</w>
       <w>redcarpet</w>
       <w>runtimes</w>
+      <w>sameorigin</w>
       <w>signup</w>
       <w>siteverify</w>
       <w>unarchive</w>
