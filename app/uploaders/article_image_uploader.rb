@@ -13,11 +13,11 @@ class ArticleImageUploader < CarrierWave::Uploader::Base
 
   # For list of articles format
   version :thumbnail do
-    cloudinary_transformation width: 295, height: 197, crop: 'thumb', quality: 100, secure: true
+    cloudinary_transformation width: 295, height: 197, crop: 'thumb', quality: 'auto', secure: true
   end
 
   # For list of article detail
   version :article_header do
-    cloudinary_transformation secure: true
+    cloudinary_transformation secure: true, quality: 'auto'
   end
 end
