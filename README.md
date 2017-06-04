@@ -42,10 +42,10 @@ This file contains the sample data for the application.
 To seed the data for database, run:
 
 ~~~
-$ psql DATABASE_URL < db/data.pgsql
+$ rake db:seed
 ~~~
 
-> **Note:** `DATABASE_URL` is full url to the database:
+> **Note:** `DATABASE_URL` is full url to the database and **it must be set**:
 >
 > ~~~
 > postgres://USER_NAME:PASSWORD@HOST_NAME:PORT/DATABASE_NAME
