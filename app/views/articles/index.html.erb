@@ -1,6 +1,6 @@
 <%= render 'articles/header',
            header_class: 'big-header',
-           header_image: 'http://demos.creative-tim.com/material-kit-pro/assets/img/bg10.jpg',
+           header_image: asset_path('library.jpg'),
            header_title: 'Power is gained from sharing knowledge, not hoarding it.' %>
 
 <%= render 'articles/layout', content_class: 'col-md-10 col-lg-offset-1' do %>
@@ -27,8 +27,8 @@
           <div class="col-md-4">
             <%= link_to article do %>
               <div class="card-image">
-                <%= cl_image_tag article.image_url(:thumbnail), class: 'img img-raised' %>
-                <div class="colored-shadow" style="background-image: url('http://demos.creative-tim.com/material-kit-pro/assets/img/examples/card-blog4.jpg'); opacity: 1;"></div>
+                <%= image_tag article.image_url(:thumbnail), class: 'img img-raised' %>
+                <div class="colored-shadow" style="background-image: url('<%= article.image_url(:thumbnail) %>'); opacity: 1;"></div>
               </div>
             <% end %>
           </div>
