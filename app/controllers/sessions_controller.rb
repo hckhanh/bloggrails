@@ -17,7 +17,8 @@ class SessionsController < ApplicationController
       session = user.sessions.create session_token: SecureRandom.urlsafe_base64(64)
       cookies.encrypted[:session_token] = {
         value: session.session_token,
-        expires: Rails.configuration.expired_time.from_now
+        expires: Rails.configuration.expired_time.from_now,
+        httponly: true
       }
 
       redirect_to redirect_path

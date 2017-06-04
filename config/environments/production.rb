@@ -90,5 +90,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Expired time for authentication token
-  config.expired_time = 2.hours
+  config.expired_time = 14.days
 end
