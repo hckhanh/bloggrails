@@ -67,8 +67,6 @@ API root: `https://bloggrails.herokuapp.com/api`
 
 ### Get list of articles
 
-#### Route
-
 ~~~
 GET /articles?search=string
 ~~~
