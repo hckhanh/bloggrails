@@ -30,7 +30,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.11'
 # Upload image
-gem 'carrierwave'
+gem 'carrierwave', '>= 1.3.2'
 # Image hosting service
 gem 'cloudinary'
 # fast, pure-Ruby Markdown-superset converter
