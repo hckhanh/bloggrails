@@ -34,7 +34,7 @@ gem 'carrierwave'
 # Image hosting service
 gem 'cloudinary'
 # fast, pure-Ruby Markdown-superset converter
-gem 'kramdown'
+gem 'kramdown', '>= 2.3.1'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
